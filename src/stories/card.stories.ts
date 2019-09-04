@@ -1,11 +1,26 @@
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import { withNotes } from '@storybook/addon-notes';
 
 import { CardComponent } from '../app/card/card.component';
 
+import {
+    MatButtonModule,
+} from '@angular/material';
+
+
 storiesOf('Card', module)
+.addDecorator(
+    moduleMetadata({
+        declarations: [
+            CardComponent
+        ],
+        imports: [
+            MatButtonModule,
+        ],
+    }),
+)
   .add('empty', () => ({
     component: CardComponent,
     props: {}
