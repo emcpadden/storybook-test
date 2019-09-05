@@ -9,6 +9,9 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 import { withCssResources } from "@storybook/addon-cssresources";
 import { withConsole, setConsoleOptions } from '@storybook/addon-console';
 
+import { centered } from '@storybook/addon-centered/angular';
+
+
 // const panelExclude = setConsoleOptions({}).panelExclude;
 // setConsoleOptions({
 //   panelExclude: [...panelExclude, /deprecated/],
@@ -28,6 +31,7 @@ const note = `
 `;
 
 storiesOf("Card", module)
+//   .addDecorator(centered)
   .addDecorator(withA11y) //Accessibility
   .addDecorator(withKnobs) //Prop manipulation
   .addDecorator(withCssResources) //CSS selection
