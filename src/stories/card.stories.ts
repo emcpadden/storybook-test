@@ -38,7 +38,11 @@ storiesOf("Card", module)
         code: `<style>body { background-color: lightblue; }</style>`,
         picked: false
       }
-    ]
+    ],
+    backgrounds: [
+        { name: 'twitter', value: '#00aced', default: true },
+        { name: 'facebook', value: '#3b5998' },
+      ],
   })
   .addDecorator(
     moduleMetadata({
