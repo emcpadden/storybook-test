@@ -7,9 +7,25 @@ import { withA11y } from "@storybook/addon-a11y";
 //like object, number, string etc
 import { withKnobs, text } from "@storybook/addon-knobs";
 import { withCssResources } from "@storybook/addon-cssresources";
+import { withConsole, setConsoleOptions } from '@storybook/addon-console';
+
+// const panelExclude = setConsoleOptions({}).panelExclude;
+// setConsoleOptions({
+//   panelExclude: [...panelExclude, /deprecated/],
+// });
+setConsoleOptions({
+});
+
 import { CardComponent } from "../app/card/card.component";
 
 import { MatButtonModule } from "@angular/material";
+
+// import  markdown from '../notes/card.notes.md!text';
+import markdown from '../notes/card.notes.md';
+
+const note = `
+  ## Some markdown  
+`;
 
 storiesOf("Card", module)
   .addDecorator(withA11y) //Accessibility
@@ -30,6 +46,7 @@ storiesOf("Card", module)
       imports: [MatButtonModule]
     })
   )
+  //.addDecorator((storyFn, context) => setConsoleOptions()(storyFn)(context))
   .add("empty", () => ({
     component: CardComponent,
     props: {}
@@ -52,8 +69,11 @@ storiesOf("Card", module)
     withNotes("Just a few notes about this story...")(() => ({
       component: CardComponent,
       props: {}
-    }))
-  )
+    }),
+  ),
+  {
+    notes: {markdown: markdown},
+  })
   .add("with action", () => ({
     component: CardComponent,
     props: {
@@ -61,7 +81,10 @@ storiesOf("Card", module)
       subtitle: "Waiting to be clicked-on",
       btnClicked: action("👊 Button was clicked")
     }
-  }));
+  }),
+  {
+    notes: 'A very simple example of addon notes',
+  });
 
 // let's nest a story into our main `Card` stories
 storiesOf("Card/nested", module).add("special card", () => ({

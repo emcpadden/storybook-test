@@ -51,6 +51,7 @@ export class CardComponent implements OnInit {
   }
 
   handleBtnClick() {
+    console.log('!!! === button clicked === !!!');
     this.btnClicked.emit(true);
   }
 }
