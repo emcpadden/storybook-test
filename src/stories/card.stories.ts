@@ -9,7 +9,7 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 import { withCssResources } from "@storybook/addon-cssresources";
 import { withConsole, setConsoleOptions } from '@storybook/addon-console';
 
-import { centered } from '@storybook/addon-centered/angular';
+// import { centered } from '@storybook/addon-centered/angular';
 
 
 // const panelExclude = setConsoleOptions({}).panelExclude;
